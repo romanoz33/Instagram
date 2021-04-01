@@ -2,10 +2,12 @@ import React, { useMemo } from 'react';
 import { Box } from '@quarkly/widgets';
 import InstagramEmbed from 'react-instagram-embed';
 
-const Counter = ({
+const InstagramSomePost = ({
 	urlProp,
 	sizeProp,
 	hideCaptionProp,
+	appIdProp,
+	clientTokenProp,
 	...props
 }) => {
 	const isSmaill = useMemo(() => sizeProp === 'Small', [sizeProp]);
@@ -14,7 +16,7 @@ const Counter = ({
       
 		<InstagramEmbed
 			url={`https://instagr.am/p/${urlProp}/`}
-			clientAccessToken='171174804739193|253f5615a16361057dfb8473a825c280'
+			clientAccessToken={`${appIdProp}|${clientTokenProp}`}
 			maxWidth={isSmaill ? 320 : 658}
 			hideCaption={hideCaptionProp}
 			containerTagName='div'
@@ -27,6 +29,24 @@ const propInfo = {
 		title: 'URL Поста',
 		description: {
 			en: 'Url адрес поста'
+		},
+		control: 'input',
+		category: 'Main',
+		weight: 1
+	},
+	appIdProp: {
+		title: 'App ID',
+		description: {
+			en: 'ID приложения'
+		},
+		control: 'input',
+		category: 'Main',
+		weight: 1
+	},
+	clientTokenProp: {
+		title: 'Client Token',
+		description: {
+			en: 'Маркер клиента'
 		},
 		control: 'input',
 		category: 'Main',
@@ -55,10 +75,12 @@ const propInfo = {
 const defaultProps = {
 	urlProp: 'CNAqpPFjeYi',
 	sizeProp: 'Small',
-	hideCaptionProp: false
+	hideCaptionProp: false,
+	appIdProp: '171174804739193',
+	clientTokenProp: '253f5615a16361057dfb8473a825c280'
 };
-Object.assign(Counter, {
+Object.assign(InstagramSomePost, {
 	propInfo,
 	defaultProps
 });
-export default Counter;
+export default InstagramSomePost;
