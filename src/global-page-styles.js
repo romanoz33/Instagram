@@ -6,7 +6,8 @@ const pageStyles = {
     "111": {},
     "404": {},
     "index": {},
-    "scroll-indicator": {}
+    "scroll-indicator": {},
+    "intercom": {}
 };
 
 const PageStyles = createGlobalStyle`

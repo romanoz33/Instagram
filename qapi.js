@@ -8,7 +8,8 @@ export default {
 				"60644cf2f029cd001f5e4b91",
 				"60644cf2f029cd001f5e4b93",
 				"606463353022f1001e5cfeb1",
-				"60648487f2b826001ebeb5ac"
+				"60648487f2b826001ebeb5ac",
+				"60657881a1e35300207186a1"
 			]
 		},
 		"60644cf2f029cd001f5e4b91": {
@@ -30,6 +31,11 @@ export default {
 			"id": "60648487f2b826001ebeb5ac",
 			"pageUrl": "scroll-indicator",
 			"name": "Scroll Indicator"
+		},
+		"60657881a1e35300207186a1": {
+			"id": "60657881a1e35300207186a1",
+			"pageUrl": "intercom",
+			"name": "Intercom"
 		}
 	},
 	"mode": "production",
