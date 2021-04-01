@@ -29,14 +29,7 @@ const overrides = {
 	}
 };
 
-const App = () => <IntercomProvider appId={INTERCOM_APP_ID}>
-	    
-	<HomePage />
-	  
-</IntercomProvider>;
-
-const Intercom = ({ ...props
-}) => {
+const HomePage = () => {
 	const {
 		boot,
 		shutdown,
@@ -49,8 +42,7 @@ const Intercom = ({ ...props
 		getVisitorId,
 		startTour,
 		trackEvent
-	} = useIntercom(); // const refIndicator = useRef(null);
-	// const [progress, setPrigress] = useState(0);
+	} = useIntercom();
 
 	const bootWithProps = () => boot({
 		name: 'Russo'
@@ -74,12 +66,8 @@ const Intercom = ({ ...props
 		name: 'Russo'
 	});
 
-	const {
-		override,
-		rest
-	} = useOverrides(props, overrides); // {...override('Wrapper Indicator')}
-
-	return <Box {...rest}>
+	return <>
+		      
 		<button onClick={boot}>
 			Boot intercom
 		</button>
@@ -141,6 +129,26 @@ const Intercom = ({ ...props
 			        Track event with metadata
       
 		</button>
+		    
+	</>;
+};
+
+const Intercom = ({ ...props
+}) => {
+	// const refIndicator = useRef(null);
+	// const [progress, setPrigress] = useState(0);
+	const {
+		override,
+		rest
+	} = useOverrides(props, overrides); // {...override('Wrapper Indicator')}
+
+	return <Box {...rest}>
+		      
+		<IntercomProvider appId={INTERCOM_APP_ID}>
+			        
+			<HomePage />
+			      
+		</IntercomProvider>
 	</Box>;
 };
 
