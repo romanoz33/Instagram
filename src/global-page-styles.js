@@ -7,7 +7,9 @@ const pageStyles = {
     "404": {},
     "index": {},
     "scroll-indicator": {},
-    "intercom": {}
+    "intercom": {},
+    "pixelfacebook": {},
+    "pdf-viewer": {}
 };
 
 const PageStyles = createGlobalStyle`

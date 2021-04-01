@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useOverrides } from '@quarkly/components';
 import { Box } from '@quarkly/widgets';
-import { IntercomProvider, useIntercom } from 'react-use-intercom';
+import Intercom from 'react-intercom';
 const INTERCOM_APP_ID = 'wkuhiwc5';
 const overrides = {
 	'Wrapper Indicator': {
@@ -29,114 +29,15 @@ const overrides = {
 	}
 };
 
-const HomePage = () => {
-	const {
-		boot,
-		shutdown,
-		hardShutdown,
-		update,
-		hide,
-		show,
-		showMessages,
-		showNewMessages,
-		getVisitorId,
-		startTour,
-		trackEvent
-	} = useIntercom();
-
-	const bootWithProps = () => boot({
-		name: 'Russo'
-	});
-
-	const updateWithProps = () => update({
-		name: 'Ossur'
-	});
-
-	const handleNewMessages = () => showNewMessages();
-
-	const handleNewMessagesWithContent = () => showNewMessages('content');
-
-	const handleGetVisitorId = () => console.log(getVisitorId());
-
-	const handleStartTour = () => startTour(123);
-
-	const handleTrackEvent = () => trackEvent('invited-friend');
-
-	const handleTrackEventWithMetaData = () => trackEvent('invited-frind', {
-		name: 'Russo'
-	});
-
-	return <>
-		      
-		<button onClick={boot}>
-			Boot intercom
-		</button>
-		      
-		<button onClick={bootWithProps}>
-			Boot with props
-		</button>
-		      
-		<button onClick={shutdown}>
-			Shutdown
-		</button>
-		      
-		<button onClick={hardShutdown}>
-			Hard shutdown
-		</button>
-		      
-		<button onClick={update}>
-			Update clean session
-		</button>
-		      
-		<button onClick={updateWithProps}>
-			Update session with props
-		</button>
-		      
-		<button onClick={show}>
-			Show messages
-		</button>
-		      
-		<button onClick={hide}>
-			Hide messages
-		</button>
-		      
-		<button onClick={showMessages}>
-			Show message list
-		</button>
-		      
-		<button onClick={handleNewMessages}>
-			Show new messages
-		</button>
-		      
-		<button onClick={handleNewMessagesWithContent}>
-			        Show new message with pre-filled content
-      
-		</button>
-		      
-		<button onClick={handleGetVisitorId}>
-			Get visitor id
-		</button>
-		      
-		<button onClick={handleStartTour}>
-			Start tour
-		</button>
-		      
-		<button onClick={handleTrackEvent}>
-			Track event
-		</button>
-		      
-		<button onClick={handleTrackEventWithMetaData}>
-			        Track event with metadata
-      
-		</button>
-		    
-	</>;
-};
-
-const Intercom = ({ ...props
+const Intercom2 = ({ ...props
 }) => {
 	// const refIndicator = useRef(null);
 	// const [progress, setPrigress] = useState(0);
+	const user = {
+		user_id: appUser.id,
+		email: appUser.email,
+		name: appUser.name
+	};
 	const {
 		override,
 		rest
@@ -144,15 +45,12 @@ const Intercom = ({ ...props
 
 	return <Box {...rest}>
 		      
-		<IntercomProvider appId={INTERCOM_APP_ID}>
-			        
-			<HomePage />
-			      
-		</IntercomProvider>
+		<Intercom appID="wkuhiwc5" />
+		 
 	</Box>;
 };
 
-Object.assign(Intercom, {
+Object.assign(Intercom2, {
 	overrides
 });
-export default Intercom;
+export default Intercom2;
