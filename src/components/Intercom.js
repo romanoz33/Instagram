@@ -33,11 +33,11 @@ const Intercom2 = ({ ...props
 }) => {
 	// const refIndicator = useRef(null);
 	// const [progress, setPrigress] = useState(0);
-	const user = {
-		user_id: appUser.id,
-		email: appUser.email,
-		name: appUser.name
-	};
+	// const user = {
+	//     user_id: appUser.id,
+	//     email: appUser.email,
+	//     name: appUser.name
+	//   };
 	const {
 		override,
 		rest
