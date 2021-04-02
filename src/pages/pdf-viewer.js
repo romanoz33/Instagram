@@ -59,7 +59,7 @@ export default (() => {
 				</StackItem>
 			</Stack>
 		</Section>
-		<Components.PdfViewer rotatePDFProp="270" text-align="center" scaleProp="2" urlPDFFileProp="http://www.orimi.com/pdf-test.pdf" />
+		<Components.PdfViewer rotatePDFProp="270" text-align="center" scaleProp="2" />
 		<Section color="--dark">
 			<Text as="h2" font="--headline1" md-font="--headline2" margin="20px 0 0 0">
 				Q&A

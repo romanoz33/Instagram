@@ -67,9 +67,6 @@ const PDFViewer = ({
 		setPage(page + 1);
 	}, [page]);
 	useEffect(() => {
-		setPages(numPages);
-	}, []);
-	useEffect(() => {
 		setPage(parseInt(defaultPageProp));
 	}, [defaultPageProp]);
 	const [loading, numPages] = usePdf({
@@ -79,6 +76,9 @@ const PDFViewer = ({
 		scale: parseFloat(scaleProp),
 		rotate: typeView
 	});
+	useEffect(() => {
+		setPages(numPages);
+	}, [numPages]);
 	const {
 		override,
 		rest
@@ -97,7 +97,7 @@ const PDFViewer = ({
 	</Box>;
 	return <Box text-align='center' {...rest}>
 		      
-		<Canvas ref={canvasEl} />
+		<Canvas ref={canvasEl} max-width='100%' />
 		      
 		{loading ? textLoading : pagination}
 		 
